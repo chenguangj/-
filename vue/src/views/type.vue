@@ -1,0 +1,156 @@
+<script>
+import {defineComponent} from 'vue'
+import request from "@/utils/request";
+
+export default defineComponent({
+  name: "type",
+  data() {
+    return {
+      name: '',
+      tableData: [],
+      total: 0,
+      dialogFormVisible: false,
+      form: {},
+      pageNum: 1,
+      pageSize: 5
+    }
+  },
+
+  created() {
+    this.table();
+    this.pageNum = 1;
+    this.pageSize = 5;
+  },
+
+  methods: {
+    table() {
+      request.get("/type/all?name=" + this.name + "&pageNum=" + this.pageNum + "&pageSize=" + this.pageSize).then(res => {
+        if (res.code === '0'){
+          this.tableData = res.data.list;
+          this.total = res.data.total;
+        } else {
+          this.$message.error(res.msg);
+        }
+      })
+    },
+    edit(type) {
+      this.form = type;
+      this.dialogFormVisible = true;
+    },
+    del(id) {
+      request.delete("/type?id=" + id).then(res => {
+        if (res.code === '0'){
+          this.$message.success("删除成功");
+          this.table();
+        } else {
+          this.$message.error(res.msg);
+        }
+      })
+    },
+    handleSizeChange(pageSize){
+      this.pageSize = pageSize;
+      this.table();
+    },
+
+    handleCurrentChange(pageNum){
+      this.pageNum = pageNum;
+      this.table();
+    },
+    add() {
+      this.form = {};
+      this.dialogFormVisible = true;
+    },
+
+    insert(){
+      if (this.form.id != null) {
+        request.put("/type" , this.form).then(res => {
+          if (res.code === '0'){
+            this.dialogFormVisible = false;
+            this.$message.success("编辑成功");
+            this.table();
+          } else {
+            this.$message.error(res.msg);
+          }
+        })
+      } else {
+        request.post("/type" , this.form).then(res => {
+          if (res.code === '0') {
+            this.dialogFormVisible = false;
+            this.$message.success("新增成功");
+            this.table();
+          } else {
+            this.$message.error(res.msg);
+          }
+        })
+      }
+    },
+
+    quxiao(){
+      this.dialogFormVisible = false;
+      this.table()
+    },
+
+    reset(){
+      this.name = '';
+      this.table();
+    },
+
+
+
+  }
+})
+</script>
+
+<template>
+  <div>
+    <div style="margin-bottom: 15px">
+      <el-input v-model="name" style="width: 210px" placeholder="名称"></el-input>
+      <el-button type="warning" style="margin-left: 10px" @click="table()">查询</el-button>
+      <el-button type="warning" style="margin-left: 10px" @click="reset()">重置</el-button>
+      <el-button type="primary" style="margin-left: 10px" @click="add()">新增</el-button>
+    </div>
+    <div>
+      <el-table :data="tableData" style="width: 100%" ref="table">
+        <el-table-column prop="name" label="名称"></el-table-column>
+        <el-table-column prop="student" label="该专业的学生人数"></el-table-column>
+        <el-table-column prop="teacher" label="该专业的老师人数"></el-table-column>
+        <el-table-column label="操作">
+          <template slot-scope="scope">
+            <el-button type="primary" @click="edit(scope.row)">编辑</el-button>
+            <el-popconfirm title="确定删除吗？若是删除会将这个专业的所有信息都删除掉" @confirm="del(scope.row.id)">
+              <el-button slot="reference" type="danger" style="margin-left: 5px">删除</el-button>
+            </el-popconfirm>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+    <div style="margin-top: 10px">
+      <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="pageNum"
+          :page-sizes="[5, 10, 15, 20]"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total">
+      </el-pagination>
+    </div>
+    <div>
+      <el-dialog title="请填写信息" :visible.sync="dialogFormVisible" width="30%">
+        <el-form :model="form">
+          <el-form-item label="名称" label-width="15%">
+            <el-input v-model="form.name" autocomplete="off" style="width: 90%"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="quxiao()">取 消</el-button>
+          <el-button type="primary" @click="insert()">确 定</el-button>
+        </div>
+      </el-dialog>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+
+</style>

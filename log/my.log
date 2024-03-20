@@ -1,0 +1,40 @@
+2023-12-18 15:06:36.999  INFO 20872 --- [main] com.example.Application                  : Starting Application on LAPTOP-TS5R94B2 with PID 20872 (started by 21006 in D:\IDEA\软件项目管理课程实验)
+2023-12-18 15:06:37.005  INFO 20872 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
+2023-12-18 15:06:37.625  WARN 20872 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
+2023-12-18 15:06:38.595  INFO 20872 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2023-12-18 15:06:38.607  INFO 20872 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-12-18 15:06:38.608  INFO 20872 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2023-12-18 15:06:38.614  INFO 20872 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.36] using APR version [1.7.2].
+2023-12-18 15:06:38.614  INFO 20872 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2023-12-18 15:06:38.614  INFO 20872 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2023-12-18 15:06:38.618  INFO 20872 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1t  7 Feb 2023]
+2023-12-18 15:06:38.734  INFO 20872 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-12-18 15:06:38.734  INFO 20872 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1683 ms
+2023-12-18 15:06:38.756  INFO 20872 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2023-12-18 15:06:38.759  INFO 20872 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2023-12-18 15:06:38.759  INFO 20872 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2023-12-18 15:06:38.760  INFO 20872 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2023-12-18 15:06:38.760  INFO 20872 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2023-12-18 15:06:38.760  INFO 20872 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2023-12-18 15:06:39.396  INFO 20872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-12-18 15:06:39.516  WARN 20872 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2023-12-18 15:06:39.697  INFO 20872 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2023-12-18 15:06:39.700  INFO 20872 --- [main] com.example.Application                  : Started Application in 3.082 seconds (JVM running for 5.245)
+2023-12-18 15:17:33.685  INFO 20872 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-18 15:17:33.686  INFO 20872 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-12-18 15:17:33.691  INFO 20872 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2023-12-18 15:17:56.715  INFO 20872 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-18 15:17:56.904  INFO 20872 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-18 15:19:41.585  INFO 20872 --- [http-nio-8888-exec-3] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:43.698  INFO 20872 --- [http-nio-8888-exec-5] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:45.532  INFO 20872 --- [http-nio-8888-exec-7] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:47.407  INFO 20872 --- [http-nio-8888-exec-8] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:49.290  INFO 20872 --- [http-nio-8888-exec-1] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:50.396  INFO 20872 --- [http-nio-8888-exec-2] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:19:52.755  INFO 20872 --- [http-nio-8888-exec-4] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:21:27.662  INFO 20872 --- [http-nio-8888-exec-6] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:21:29.804  INFO 20872 --- [http-nio-8888-exec-8] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:21:31.160  INFO 20872 --- [http-nio-8888-exec-1] com.example.common.JwtInterceptor        : token正确允许放行
+2023-12-18 15:24:03.294  INFO 20872 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-12-18 15:24:03.294  INFO 20872 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-12-18 15:24:03.299  INFO 20872 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
